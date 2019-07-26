@@ -24,9 +24,9 @@ Video super-resolution (VSR) aims to infer a high- resolution (HR) video sequenc
 ### Neural Architecture
 --------
 Here is an overview of our network architecture 
-![STAVSR](https://github.com/masoudML/Spatio_Temporal_Adversarial_Video_Super_Resolution/blob/master/images/overall.png "Spatio-Temporal Adversarial VSR")
+![STAVSR](https://github.com/masoudML/Spatio_Temporal_Adversarial_Video_Super_Resolution/blob/master/images/overall.png "Spatio-Temporal Adversarial VSR" width="200" height="200")
 
-![Temporal Discriminator](https://github.com/masoudML/Spatio_Temporal_Adversarial_Video_Super_Resolution/blob/master/images/disc.png "Spatio-Temporal Adversarial Discriminator Architecture")
+![Temporal Discriminator](https://github.com/masoudML/Spatio_Temporal_Adversarial_Video_Super_Resolution/blob/master/images/disc.png "Spatio-Temporal Adversarial Discriminator Architecture" width="200" height="200")
 
 
 ### Dataset (TOFLOW)
@@ -54,7 +54,7 @@ examples/run_bertqa.sh
 ### BibTeX
 --------
 ```
-@misc{Stanford-CS224n,
+@misc{Stanford-CS231n,
   author = {Chadha,Ankit;Masoud,M},
   title = {Spatio-Temporal Adversarial Video Super Resolution},
   year = {2019},
@@ -68,6 +68,9 @@ examples/run_bertqa.sh
 Refer to the paper for more details on our hyperparameters chosen.
 
 [1] M. Haris, G. Shakhnarovich, N. Ukita. Recurrent Back-Projection Network for Video Super-Resolution, Accepted: Conference on Computer Vision and Pat- tern Recognition, (2019).
+
 [2] M. Haris, G. Shakhnarovich, N. Ukita. Deep Back- Projection Networks For Super-Resolution , Confer- ence on Computer Vision and Pattern Recognition, (2018).
+
 [3] M. Chu, Y. Xie, L. L. Taix, N. Thuerey, tem- poGAN: A Temporally Coherent, Volumetric GAN for Super-resolution Fluid Flow, textitACM Transac- tion on Graphics, (2018).
+
 [4] Y. Xie, E. Franz, M. Chu, N. Thuerey, tempoGAN: A Temporally Coherent, Volumetric GAN for Super- resolution Fluid Flow, textitACM Transaction on Graphics, (2018).
