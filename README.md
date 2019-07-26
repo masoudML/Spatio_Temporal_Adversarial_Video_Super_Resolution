@@ -1,1 +1,60 @@
-# Spatio_Temporal_Adversarial_Video_Super_Resolution
+# Spatio-Temporal Adversarial Video Super Resolution (VSR)
+
+#### Developers - Ankit Chadha (ankitrc@stanford.edu), Mohamed Masoud (masoudm@uw.edu)
+--------
+This repository is based off RBPN's [PyTorch RBPN implementation](https://github.com/alterzero/RBPN-PyTorch)
+
+This was done as part of CS231n: Convolutional Neural Networks for Visual Recognition - Stanford / Spring 2019 class project.
+
+<img src="https://github.com/ankit-ai/BertQA-Attention-on-Steroids/blob/master/img/meme.png" width="320" height="300">
+
+--------
+<img src="https://github.com/ankit-ai/BertQA-Attention-on-Steroids/blob/master/img/poster.png">
+
+--------
+
+### Abstract
+--------
+In this work, we extend the Bidirectional Encoder Representations from Transformers (BERT) with an emphasis on directed coattention to obtain an improved F1 performance on the SQUAD2.0 dataset. The Transformer architecture on which BERT is based places hierarchical global attention on the concatenation of the context and query. Our additions to the BERT architecture augment this attention with a more focused context to query and query to context attention via a set of modified Transformer encoder units. In addition, we explore adding convolution based feature extraction within the coattention architecture to add localized information to self-attention. The base BERT architecture with no SQUAD2.0 specific finetuning produces results with an F1 of 74. We found that coattention significantly improves the no answer F1 by 4 points while causing a loss in the has answer F1 score by the same amount. After adding skip connections the no answer F1 improved further without causing an additional loss in has answer F1. The addition of localized feature extraction added to attention produced the best results with an overall dev F1 of 77.03 due to a marked improvement in the has answer F1 score. We applied our findings to the large BERT model which contains twice as many layers and further used our own augmented version of the SQUAD 2.0 dataset created by back translation. Finaly, we performed hyperparameter tuning and ensembled our best models for a final F1/EM of 82.148/79.239 (Attention on Steroids, PCE Test Leaderboard).
+
+### Neural Architecture
+--------
+Here is an overview of our network architecture 
+![BERTQA](https://github.com/ankit-ai/BertQA-Attention-on-Steroids/blob/master/img/bert.png "BERTQA - Attention on Steroids")
+
+### Dataset (SQuAD 2.Q)
+--------
+We use an augmented version of the SQuAD 2.0 dataset based on the concept of Back Translation. You can download the dataset [here](https://github.com/ankit-ai/SQUAD2.Q-Augmented-Dataset).
+
+To read more on the process of Back Translation you can refer [this resource](http://ankit-ai.blogspot.com/2019/03/future-of-natural-language-processing.html)
+
+### Command Lines
+--------
+This repository has command line bash files with the optimal hyperparameters our network was tuned for. 
+```
+1. Sanity Check 
+#Launch a debug run on 1 example out of the SQuAD 2.0 training set - Beyonce paragraph 
+examples/rundbg.sh
+
+2. Train on SQuAD 2.Q
+#Fine tunes BERT layers on SQuAD 2.Q and trains additional directed co-attention layers.
+run_bertqa_expt.sh
+
+3. Train on SQuAD 2.0
+#Fine tunes BERT embedding layers on SQuAD 2.0 and trains additional directed co-attention layers.
+examples/run_bertqa.sh
+```
+
+### BibTeX
+--------
+```
+@misc{Stanford-CS224n,
+  author = {Chadha,Ankit;Sood,Rewa},
+  title = {BertQA - Attention on Steroids},
+  year = {2019},
+  publisher = {Stanford-CS224n},
+  howpublished = {\url{https://github.com/ankit-ai/BertQA-Attention-on-Steroids}}
+}
+```
+
+Refer to the paper for more details on our hyperparameters chosen.
