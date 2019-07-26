@@ -9,9 +9,10 @@ This was done as part of CS231n: Convolutional Neural Networks for Visual Recogn
 <img src="https://github.com/masoudML/Spatio_Temporal_Adversarial_Video_Super_Resolution/blob/master/images/vsr1.png?raw=true" width="800" height="600">
 --------
 
-Spatial Time series output showcasing the effectiveness of the Discriminator
+
 <img src="https://github.com/masoudML/Spatio_Temporal_Adversarial_Video_Super_Resolution/blob/master/images/spatio_postr.png">
 <img src="https://github.com/masoudML/Spatio_Temporal_Adversarial_Video_Super_Resolution/blob/master/images/time.png">
+Spatial Time series output showcasing the effectiveness of the Discriminator
 
 --------
 
@@ -54,11 +55,11 @@ examples/run_bertqa.sh
 --------
 ```
 @misc{Stanford-CS224n,
-  author = {Chadha,Ankit;Sood,Rewa},
-  title = {BertQA - Attention on Steroids},
+  author = {Chadha,Ankit;Masoud,M},
+  title = {Spatio-Temporal Adversarial Video Super Resolution},
   year = {2019},
-  publisher = {Stanford-CS224n},
-  howpublished = {\url{https://github.com/ankit-ai/BertQA-Attention-on-Steroids}}
+  publisher = {Stanford-CS231n},
+  howpublished = {\url{https://github.com/masoudML/Spatio_Temporal_Adversarial_Video_Super_Resolution}}
 }
 ```
 
