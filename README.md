@@ -6,27 +6,32 @@ This repository is based off RBPN's [PyTorch RBPN implementation](https://github
 
 This was done as part of CS231n: Convolutional Neural Networks for Visual Recognition - Stanford / Spring 2019 class project.
 
-<img src="https://github.com/ankit-ai/BertQA-Attention-on-Steroids/blob/master/img/meme.png" width="320" height="300">
-
+<img src="https://github.com/masoudML/Spatio_Temporal_Adversarial_Video_Super_Resolution/blob/master/images/vsr1.png?raw=true" width="800" height="600">
 --------
-<img src="https://github.com/ankit-ai/BertQA-Attention-on-Steroids/blob/master/img/poster.png">
+
+Spatial Time series output showcasing the effectiveness of the Discriminator
+<img src="https://github.com/masoudML/Spatio_Temporal_Adversarial_Video_Super_Resolution/blob/master/images/spatio_postr.png">
+<img src="https://github.com/masoudML/Spatio_Temporal_Adversarial_Video_Super_Resolution/blob/master/images/time.png">
 
 --------
 
 ### Abstract
 --------
-In this work, we extend the Bidirectional Encoder Representations from Transformers (BERT) with an emphasis on directed coattention to obtain an improved F1 performance on the SQUAD2.0 dataset. The Transformer architecture on which BERT is based places hierarchical global attention on the concatenation of the context and query. Our additions to the BERT architecture augment this attention with a more focused context to query and query to context attention via a set of modified Transformer encoder units. In addition, we explore adding convolution based feature extraction within the coattention architecture to add localized information to self-attention. The base BERT architecture with no SQUAD2.0 specific finetuning produces results with an F1 of 74. We found that coattention significantly improves the no answer F1 by 4 points while causing a loss in the has answer F1 score by the same amount. After adding skip connections the no answer F1 improved further without causing an additional loss in has answer F1. The addition of localized feature extraction added to attention produced the best results with an overall dev F1 of 77.03 due to a marked improvement in the has answer F1 score. We applied our findings to the large BERT model which contains twice as many layers and further used our own augmented version of the SQUAD 2.0 dataset created by back translation. Finaly, we performed hyperparameter tuning and ensembled our best models for a final F1/EM of 82.148/79.239 (Attention on Steroids, PCE Test Leaderboard).
+
+Video super-resolution (VSR) aims to infer a high- resolution (HR) video sequence from multiple low- resolution (LR) frames. VSR helps with many important applications such as new scene generation, anomaly detec- tion and recovery of information lost during video compres- sion. For single-image super-resolution (SISR), adversarial training has been highly successful, yielding realistic and highly detailed results. The Recurrent Back-Projection Net- work (RBPN) uses a recurrent framework that treats each frame as a separate spatial source of information [1]. Ad- ditionally, RBPN combines the frames’ spatial information in a recurrent iterative refinement framework inspired by the idea of back-projection to produce temporally coherent multiple-image super-resolution (MISR). The recurrent gen- erative framework integrates spatial and temporal contexts from continuous video frames using a recurrent encoder- decoder module that fuses multi-frame information with the SR version of the target frame [1]. In this project, we pro- pose a novel architecture for a spatio-temporal adversarial recurrent discriminator to achieve photorealistic and tem- porally coherent super resolved frames with a more sophis- ticated objective function to fine-tune spatial and tempo- ral features of RBPN. Our quantitative and visual analyses highlight the enhanced capability of the RBPN generator to be able to learn high frequency details both spatially and temporally.
 
 ### Neural Architecture
 --------
 Here is an overview of our network architecture 
-![BERTQA](https://github.com/ankit-ai/BertQA-Attention-on-Steroids/blob/master/img/bert.png "BERTQA - Attention on Steroids")
+![STAVSR](https://github.com/masoudML/Spatio_Temporal_Adversarial_Video_Super_Resolution/blob/master/images/overall.png "Spatio-Temporal Adversarial VSR")
 
-### Dataset (SQuAD 2.Q)
+![Temporal Discriminator](https://github.com/masoudML/Spatio_Temporal_Adversarial_Video_Super_Resolution/blob/master/images/disc.png "Spatio-Temporal Adversarial Discriminator Architecture")
+
+
+### Dataset (TOFLOW)
 --------
-We use an augmented version of the SQuAD 2.0 dataset based on the concept of Back Translation. You can download the dataset [here](https://github.com/ankit-ai/SQUAD2.Q-Augmented-Dataset).
+The dataset used in this project is vimeo90k by TOFlow [13]. We are using the septuplet dataset which has 91,701 7- frame sequences which cover a variety of motion and detail in the videos. We augmented the data by flipping, rotat- ing, and randomly cropping the input frames to extend the distribution and variance of the dataset and reduce overfit- ting. Each augmentation was applied to the whole septuplet to avoid discrepancies between frames. The choice of this dataset was inspired by RBPN [1], which we choose as the model generator. The proposed model uses as an input 7 LR frames including the target LR frame for SISR. The net- work is trained on patches rather than full frames. These patches are 64x64 random crops from the original video frames. The pre-trained network does not perform any ex- plicit normalization to the data. The data was arranged into 70-15-15 split for train, validation and test sets. Addition- ally, following most of the video super resolution literature comparisons, we conducted further test experiments over the Vid4 dataset. That allows to further test the general- izability of our model on other datasets and to have a fair comparison with SoTA methods. You can download the dataset [here](http://toflow.csail.mit.edu/).
 
-To read more on the process of Back Translation you can refer [this resource](http://ankit-ai.blogspot.com/2019/03/future-of-natural-language-processing.html)
 
 ### Command Lines
 --------
@@ -57,4 +62,11 @@ examples/run_bertqa.sh
 }
 ```
 
+### References
+--------
 Refer to the paper for more details on our hyperparameters chosen.
+
+[1] M. Haris, G. Shakhnarovich, N. Ukita. Recurrent Back-Projection Network for Video Super-Resolution, Accepted: Conference on Computer Vision and Pat- tern Recognition, (2019).
+[2] M. Haris, G. Shakhnarovich, N. Ukita. Deep Back- Projection Networks For Super-Resolution , Confer- ence on Computer Vision and Pattern Recognition, (2018).
+[3] M. Chu, Y. Xie, L. L. Taix, N. Thuerey, tem- poGAN: A Temporally Coherent, Volumetric GAN for Super-resolution Fluid Flow, textitACM Transac- tion on Graphics, (2018).
+[4] Y. Xie, E. Franz, M. Chu, N. Thuerey, tempoGAN: A Temporally Coherent, Volumetric GAN for Super- resolution Fluid Flow, textitACM Transaction on Graphics, (2018).
