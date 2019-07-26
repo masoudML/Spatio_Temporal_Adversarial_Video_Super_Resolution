@@ -39,17 +39,12 @@ The dataset used in this project is vimeo90k by TOFlow [13]. We are using the se
 --------
 This repository has command line bash files with the optimal hyperparameters our network was tuned for. 
 ```
-1. Sanity Check 
-#Launch a debug run on 1 example out of the SQuAD 2.0 training set - Beyonce paragraph 
-examples/rundbg.sh
+1. Train
 
-2. Train on SQuAD 2.Q
-#Fine tunes BERT layers on SQuAD 2.Q and trains additional directed co-attention layers.
-run_bertqa_expt.sh
+python main.py --start_epoch=1 --snapshots=1 --lr=1e-05 --prefix=D1 --batchSize=2 --pretrained_disc=<path-to-discriminator-pth-file> --pretrained_sr=<path-to-generator-pth-file>
 
-3. Train on SQuAD 2.0
-#Fine tunes BERT embedding layers on SQuAD 2.0 and trains additional directed co-attention layers.
-examples/run_bertqa.sh
+
+2. Eval
 ```
 
 ### BibTeX
