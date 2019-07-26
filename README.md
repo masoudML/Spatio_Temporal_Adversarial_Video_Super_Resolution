@@ -25,9 +25,9 @@ Video super-resolution (VSR) aims to infer a high- resolution (HR) video sequenc
 --------
 Here is an overview of our network architecture 
 
-<img src="https://github.com/masoudML/Spatio_Temporal_Adversarial_Video_Super_Resolution/blob/master/images/overall.png" width="200" height="200">
+<img src="https://github.com/masoudML/Spatio_Temporal_Adversarial_Video_Super_Resolution/blob/master/images/overall.png" width="350" height="350">
 
-<img src="https://github.com/masoudML/Spatio_Temporal_Adversarial_Video_Super_Resolution/blob/master/images/disc.png" width="200" height="200">
+<img src="https://github.com/masoudML/Spatio_Temporal_Adversarial_Video_Super_Resolution/blob/master/images/disc.png" width="460" height="360">
 
 
 ### Dataset (TOFLOW)
