@@ -1,6 +1,6 @@
-# Spatio-Temporal Adversarial Video Super Resolution (VSR)
+# Spatio-Temporal Recurrent Adversarial Back Projection Network for Video Super Resolution
 
-#### Developers - Ankit Chadha (ankitrc@stanford.edu), Mohamed Masoud (masoudm@uw.edu)
+#### Authors - Ankit Chadha (ankitrc@stanford.edu), Mohamed Masoud (masoud@stanford.edu - masoudm@uw.edu)
 --------
 This repository is based off RBPN's [PyTorch RBPN implementation](https://github.com/alterzero/RBPN-PyTorch)
 
